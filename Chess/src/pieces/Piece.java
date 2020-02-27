@@ -11,15 +11,23 @@ public abstract class Piece {
 		this.pos = pos;
 		count++;
 	}
+	public static Piece hasPosition(Position pos1) {
+		Piece[] pieces = new Piece[Piece.count];
+		for (Piece p : pieces) {
+			if(p.equals(pos1))
+				return p;
+		}
+		return null;
+	}
 	
 	public Color getColor() { return color; }
 	public Position getPosition() { return pos; }
 	
-	public abstract void Move(Position go);
+	public abstract void move(Position go);
 	
-	protected abstract boolean Check();
+	protected abstract boolean check(Position go);
 	
-	protected abstract boolean Attack();
+	protected abstract boolean attack(Position go);
 	
 }
 
